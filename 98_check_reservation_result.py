@@ -259,3 +259,4 @@ if __name__ == "__main__":
     logging.info("✅ 所有用户查询完成")
 
     log_contents = log_stream.getvalue()
+    send("i茅台 查询申购结果日志：", log_contents)

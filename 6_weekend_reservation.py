@@ -49,10 +49,11 @@ import ast
 import io
 import math
 import re
-
+import sys
+sys.path.append('/usr/local/lib/python3.12/dist-packages')  # 替换为实际路径
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
-from notify import send
+
 
 # 每周星期天 15:05 开始预约
 '''
@@ -175,7 +176,7 @@ if KEN_IMAOTAI_ENV:
                 logging.info(f"🚫 用户信息不完整: {user}")
         except Exception as e:
             errText = f"🚫 KEN_IMAOTAI_ENV 环境变量格式错误: {e}"
-            send("i茅台预约日志：", errText)
+
             raise Exception(errText)
 
     logging.info("找到以下用户配置：")
@@ -188,7 +189,7 @@ if KEN_IMAOTAI_ENV:
 
 else:
     errText = "🚫 KEN_IMAOTAI_ENV 环境变量未定义"
-    send("i茅台预约日志：", errText)
+
     raise Exception(errText)
 
 base_url_game = "https://h5.moutai519.com.cn/game"
@@ -514,7 +515,7 @@ if __name__ == "__main__":
         if now.weekday() != 6 or now.hour < 15 or now.hour >= 16:
             err_msg = "🚫 当前时间不在星期天的 15:00 到 16:00 期间，不执行预约"
             logger.warning(err_msg)
-            send("i茅台周末欢乐购日志：", err_msg)
+
             exit()
 
     # 生成时间戳
@@ -538,4 +539,4 @@ if __name__ == "__main__":
     logging.info(" ✅ 所有用户预约完成")
 
     log_contents = log_stream.getvalue()
-    send("i茅台周末欢乐购日志：", log_contents)
+

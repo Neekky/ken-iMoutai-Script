@@ -89,7 +89,7 @@ if KEN_IMAOTAI_ENV:
             split_values = re.split(r'[#$]', env)
 
             PHONE_NUMBER, USER_ID, DEVICE_ID, MT_VERSION, PRODUCT_ID_LIST, SHOP_INFO, LAT, LNG, TOKEN, COOKIE = split_values
-
+            print(split_values)
             SHOP_MODE = ''
             PROVINCE = ''
             CITY = ''

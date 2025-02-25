@@ -47,8 +47,6 @@ import jwt
 import logging
 import re
 
-from notify import send
-
 # 每日 18:05 定时检查并通知
 '''
 cron: 05 18 * * *
@@ -158,7 +156,7 @@ if KEN_IMAOTAI_ENV:
                 logging.info(f"🚫 用户信息不完整: {user}")
         except Exception as e:
             errText = f"🚫 KEN_IMAOTAI_ENV 环境变量格式错误: {e}"
-            send("i茅台预约日志：", errText)
+
             raise Exception(errText)
 
     logging.info("找到以下用户配置：")
@@ -171,7 +169,7 @@ if KEN_IMAOTAI_ENV:
 
 else:
     errText = "🚫 KEN_IMAOTAI_ENV 环境变量未定义"
-    send("i茅台预约日志：", errText)
+
     raise Exception(errText)
 
 
@@ -270,4 +268,4 @@ if __name__ == "__main__":
     logging.info("✅ 所有用户检查完成")
 
     log_contents = log_stream.getvalue()
-    send("i茅台 TOKEN、COOKIE 有效期检查日志：", log_contents)
+

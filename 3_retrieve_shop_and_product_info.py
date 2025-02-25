@@ -14,9 +14,9 @@ https://resource.moutai519.com.cn/mt-resource/resource/myserviceshops/1726025401
 
 # 示例调用，省份和市区需要填写完整，
 # 省份
-PROVINCE_NAME = "广西壮族自治区"
+PROVINCE_NAME = "湖南省"
 # 城市
-CITY_NAME = "南宁市"
+CITY_NAME = "长沙市"
 
 # --------------------
 
